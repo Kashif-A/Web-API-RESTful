@@ -33,9 +33,9 @@ public class HibernateSessionFactory {
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://35.234.148.122:3306/filmsDB?autoReconnect=true&useSSL=false");
-                settings.put(Environment.USER, "18061036");
-                settings.put(Environment.PASS, "18061036");
+                settings.put(Environment.URL, "jdbc:mysql://URL:3306/filmsDB?autoReconnect=true&useSSL=false");
+                settings.put(Environment.USER, "uname");
+                settings.put(Environment.PASS, "pwd");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
