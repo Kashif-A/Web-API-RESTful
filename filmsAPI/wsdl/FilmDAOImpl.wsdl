@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://dao" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://dao" xmlns:intf="http://dao" xmlns:tns1="http://model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://dao" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model"/>
+   <element name="addFilm">
+    <complexType>
+     <sequence>
+      <element name="film" type="tns1:Film"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addFilmResponse">
+    <complexType/>
+   </element>
+   <element name="getFilm">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="title" type="xsd:string"/>
+      <element name="year" type="xsd:string"/>
+      <element name="director" type="xsd:string"/>
+      <element name="stars" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFilmResponse">
+    <complexType>
+     <sequence>
+      <element name="getFilmReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="deleteFilm">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteFilmResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteFilmReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateFilm">
+    <complexType>
+     <sequence>
+      <element name="film" type="tns1:Film"/>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateFilmResponse">
+    <complexType/>
+   </element>
+   <element name="listFilm">
+    <complexType/>
+   </element>
+   <element name="listFilmResponse">
+    <complexType>
+     <sequence>
+      <element name="listFilmReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://dao"/>
+   <complexType name="Film">
+    <sequence>
+     <element name="director" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="review" nillable="true" type="xsd:string"/>
+     <element name="stars" nillable="true" type="xsd:string"/>
+     <element name="title" nillable="true" type="xsd:string"/>
+     <element name="year" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addFilmRequest">
+
+      <wsdl:part element="impl:addFilm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addFilmResponse">
+
+      <wsdl:part element="impl:addFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFilmResponse">
+
+      <wsdl:part element="impl:getFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateFilmResponse">
+
+      <wsdl:part element="impl:updateFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateFilmRequest">
+
+      <wsdl:part element="impl:updateFilm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listFilmResponse">
+
+      <wsdl:part element="impl:listFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteFilmRequest">
+
+      <wsdl:part element="impl:deleteFilm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteFilmResponse">
+
+      <wsdl:part element="impl:deleteFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFilmRequest">
+
+      <wsdl:part element="impl:getFilm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listFilmRequest">
+
+      <wsdl:part element="impl:listFilm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FilmDAOImpl">
+
+      <wsdl:operation name="addFilm">
+
+         <wsdl:input message="impl:addFilmRequest" name="addFilmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addFilmResponse" name="addFilmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFilm">
+
+         <wsdl:input message="impl:getFilmRequest" name="getFilmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFilmResponse" name="getFilmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteFilm">
+
+         <wsdl:input message="impl:deleteFilmRequest" name="deleteFilmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteFilmResponse" name="deleteFilmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateFilm">
+
+         <wsdl:input message="impl:updateFilmRequest" name="updateFilmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateFilmResponse" name="updateFilmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listFilm">
+
+         <wsdl:input message="impl:listFilmRequest" name="listFilmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listFilmResponse" name="listFilmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FilmDAOImplSoapBinding" type="impl:FilmDAOImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addFilm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addFilmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addFilmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFilm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFilmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFilmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteFilm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteFilmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteFilmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateFilm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateFilmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateFilmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listFilm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listFilmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listFilmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FilmDAOImplService">
+
+      <wsdl:port binding="impl:FilmDAOImplSoapBinding" name="FilmDAOImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/WSDL/services/FilmDAOImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
